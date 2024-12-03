@@ -1,0 +1,140 @@
+.app-grid {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 400px;
+  grid-template-areas: 'section-area tune-area';
+  overflow-x: hidden;
+  transition: .2s all;
+}
+
+.app-grid.hidden {
+  grid-template-columns: 1fr 0px;
+}
+
+.section-area {
+  grid-area: section-area;
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.tune-area {
+  width: 400px;
+  padding: 1rem;
+  grid-area: tune-area;
+  position: relative;
+  transition: .2s all;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  scroll-snap-align: start;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.form-container {
+  margin: auto;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.result-container {
+  margin-block: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 5rem;
+}
+
+.section-title {
+  display: block;
+  position: relative;
+  top: 1%;
+  left: 5%;
+  font-size: 7rem;
+  font-weight: 700;
+  margin: 0rem;
+}
+
+.next-btn {
+  position: relative;
+  right: 1rem;
+  bottom: 1rem;
+  align-self: flex-end;
+}
+
+.back-btn {
+  position: relative;
+  right: 1rem;
+  bottom: 1rem;
+  align-self: flex-start;
+}
+
+#pesos {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1rem;
+}
+
+.tune-toggle {
+  position: absolute;
+  left: -5rem;
+  top: 1rem;
+}
+
+.bar-wrap {
+  height: 8px;
+  width: 100%;
+  border-radius: 100vw;
+  outline: var(--secondary-color) solid 3px;
+}
+
+.bar {
+  height: 100%;
+  background-color: var(--success-color);
+  border-radius: 100vw;
+  transition: .2s all;
+}
+
+// lower title font size for mobile
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 3rem;
+  }
+  h2{
+    font-size: 12pt;
+  }
+
+  .app-grid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 400px;
+    grid-template-areas: 'section-area'
+                        'tune-area';
+    overflow-y: hidden;
+    transition: .2s all;
+  }
+
+  .app-grid.hidden {
+    grid-template-rows: 1fr 0px;
+  }
+  .tune-area {
+    height: 600px;
+  }
+  .tune-toggle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -5rem;
+  }
+}
